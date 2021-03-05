@@ -40,7 +40,7 @@ namespace aetina_hwcheck_app.git
 
         private void gethwinfo()
         {
-            string inifile = System.AppDomain.CurrentDomain.BaseDirectory + "config.ini";
+            string inifile = System.AppDomain.CurrentDomain.BaseDirectory + "config_for_aetina.ini";
             if (File.Exists(inifile))
             {
                 m_Inifile = new IniFile(inifile);
@@ -76,28 +76,28 @@ namespace aetina_hwcheck_app.git
                         SSD_STATUS.BackColor = Color.Red;
                     }
 
-                    //showtotextbox("---------------------SSD-----------------------------");
-                    //showtotextbox("Caption: " + pdc["Caption"].Value);
-                    //showtotextbox("CompressionMethod: " + pdc["CompressionMethod"].Value);
-                    //showtotextbox("CreationClassName: " + pdc["CreationClassName"].Value);
-                    //showtotextbox("Description: " + pdc["Description"].Value);
-                    //showtotextbox("DeviceID: " + pdc["DeviceID"].Value);
-                    //showtotextbox("ErrorDescription: " + pdc["ErrorDescription"].Value);
-                    //showtotextbox("ErrorMethodology: " + pdc["ErrorMethodology"].Value);
-                    //showtotextbox("FirmwareRevision: " + pdc["FirmwareRevision"].Value);
-                    //showtotextbox("InterfaceType: " + pdc["InterfaceType"].Value);
-                    //showtotextbox("Manufacturer: " + pdc["Manufacturer"].Value);
-                    //showtotextbox("MediaType: " + pdc["MediaType"].Value);
-                    //showtotextbox("Model: " + pdc["Model"].Value);
-                    //showtotextbox("Name: " + pdc["Name"].Value);
-                    //showtotextbox("PNPDeviceID: " + pdc["PNPDeviceID"].Value);
-                    //showtotextbox("SerialNumber: " + pdc["SerialNumber"].Value);
-                    //showtotextbox("Status: " + pdc["Status"].Value);
-                    //showtotextbox("SystemCreationClassName: " + pdc["SystemCreationClassName"].Value);
-                    //showtotextbox("SystemName: " + pdc["SystemName"].Value);
-                    //UInt64 fsize = Convert.ToUInt64(pdc["Size"].Value) / (1024 * 1024 * 1024);
-                    //showtotextbox("Size: " + fsize + " GB");
-                    //showtotextbox("-----------------------------------------------------");
+                    showtotextbox("---------------------SSD-----------------------------");
+                    showtotextbox("Caption: " + pdc["Caption"].Value);
+                    showtotextbox("CompressionMethod: " + pdc["CompressionMethod"].Value);
+                    showtotextbox("CreationClassName: " + pdc["CreationClassName"].Value);
+                    showtotextbox("Description: " + pdc["Description"].Value);
+                    showtotextbox("DeviceID: " + pdc["DeviceID"].Value);
+                    showtotextbox("ErrorDescription: " + pdc["ErrorDescription"].Value);
+                    showtotextbox("ErrorMethodology: " + pdc["ErrorMethodology"].Value);
+                    showtotextbox("FirmwareRevision: " + pdc["FirmwareRevision"].Value);
+                    showtotextbox("InterfaceType: " + pdc["InterfaceType"].Value);
+                    showtotextbox("Manufacturer: " + pdc["Manufacturer"].Value);
+                    showtotextbox("MediaType: " + pdc["MediaType"].Value);
+                    showtotextbox("Model: " + pdc["Model"].Value);
+                    showtotextbox("Name: " + pdc["Name"].Value);
+                    showtotextbox("PNPDeviceID: " + pdc["PNPDeviceID"].Value);
+                    showtotextbox("SerialNumber: " + pdc["SerialNumber"].Value);
+                    showtotextbox("Status: " + pdc["Status"].Value);
+                    showtotextbox("SystemCreationClassName: " + pdc["SystemCreationClassName"].Value);
+                    showtotextbox("SystemName: " + pdc["SystemName"].Value);
+                    UInt64 fsize = Convert.ToUInt64(pdc["Size"].Value) / (1024 * 1024 * 1024);
+                    showtotextbox("Size: " + fsize + " GB");
+                    showtotextbox("-----------------------------------------------------");
                 }
 
                 //Get DRAM information            
