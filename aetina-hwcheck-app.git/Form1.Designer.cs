@@ -30,8 +30,8 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.GPU_STATUS = new System.Windows.Forms.TextBox();
+            this.RAM_STATUS = new System.Windows.Forms.TextBox();
             this.SSD_STATUS = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbx_hw_info = new System.Windows.Forms.TextBox();
@@ -40,7 +40,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.Location = new System.Drawing.Point(621, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 24);
@@ -50,38 +50,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label2.Location = new System.Drawing.Point(361, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 24);
             this.label2.TabIndex = 12;
             this.label2.Text = "DRAM";
             // 
-            // textBox3
+            // GPU_STATUS
             // 
-            this.textBox3.Font = new System.Drawing.Font("PMingLiU", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox3.Location = new System.Drawing.Point(549, 43);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(238, 158);
-            this.textBox3.TabIndex = 11;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GPU_STATUS.Font = new System.Drawing.Font("新細明體", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.GPU_STATUS.Location = new System.Drawing.Point(549, 43);
+            this.GPU_STATUS.Multiline = true;
+            this.GPU_STATUS.Name = "GPU_STATUS";
+            this.GPU_STATUS.ReadOnly = true;
+            this.GPU_STATUS.Size = new System.Drawing.Size(238, 158);
+            this.GPU_STATUS.TabIndex = 11;
+            this.GPU_STATUS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // RAM_STATUS
             // 
-            this.textBox2.Font = new System.Drawing.Font("PMingLiU", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox2.Location = new System.Drawing.Point(282, 43);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(238, 158);
-            this.textBox2.TabIndex = 10;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RAM_STATUS.Font = new System.Drawing.Font("新細明體", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.RAM_STATUS.Location = new System.Drawing.Point(282, 43);
+            this.RAM_STATUS.Multiline = true;
+            this.RAM_STATUS.Name = "RAM_STATUS";
+            this.RAM_STATUS.ReadOnly = true;
+            this.RAM_STATUS.Size = new System.Drawing.Size(238, 158);
+            this.RAM_STATUS.TabIndex = 10;
+            this.RAM_STATUS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SSD_STATUS
             // 
-            this.SSD_STATUS.Font = new System.Drawing.Font("PMingLiU", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.SSD_STATUS.Font = new System.Drawing.Font("新細明體", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.SSD_STATUS.Location = new System.Drawing.Point(5, 43);
             this.SSD_STATUS.Multiline = true;
             this.SSD_STATUS.Name = "SSD_STATUS";
@@ -93,7 +93,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(84, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 24);
@@ -117,8 +117,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.GPU_STATUS);
+            this.Controls.Add(this.RAM_STATUS);
             this.Controls.Add(this.SSD_STATUS);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbx_hw_info);
@@ -134,8 +134,8 @@
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox GPU_STATUS;
+        private System.Windows.Forms.TextBox RAM_STATUS;
         private System.Windows.Forms.TextBox SSD_STATUS;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbx_hw_info;

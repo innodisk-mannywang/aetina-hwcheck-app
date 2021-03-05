@@ -101,10 +101,25 @@ namespace aetina_hwcheck_app.git
                 }
 
                 //Get DRAM information            
+                int ram_check_number = 0;
                 mos.Query.QueryString = "SELECT * FROM Win32_PhysicalMemory";
                 foreach (ManagementObject mo in mos.Get())
                 {
                     PropertyDataCollection pdc = mo.Properties;
+
+                    if (pdc["PARTNUMBER"].Value.ToString().Contains(Config.DRAM_PARTNUMBER))
+                       ram_check_number++;
+
+                    if (ram_check_number == Config.DRAM_COUNT)
+                    {
+                        RAM_STATUS.Text = STATUS_PASS;
+                        RAM_STATUS.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        RAM_STATUS.Text = STATUS_FAILED;
+                        RAM_STATUS.BackColor = Color.Red;
+                    }
 
                     showtotextbox("---------------------RAM-----------------------------");
                     showtotextbox("BankLabel: " + pdc["BankLabel"].Value);
@@ -141,10 +156,25 @@ namespace aetina_hwcheck_app.git
                 }
 
                 //Get Video Card information
+                int GPU_COUNT = 0;
                 mos.Query.QueryString = "SELECT * FROM Win32_PnPEntity";
                 foreach (ManagementObject mo in mos.Get())
                 {
                     PropertyDataCollection pdc = mo.Properties;
+
+                    if (pdc["DeviceID"].Value.ToString().Contains(Config.GPU_VIDPID))
+                        GPU_COUNT++;
+
+                    if (GPU_COUNT == Config.GPU_COUNT)
+                    {
+                        GPU_STATUS.Text = STATUS_PASS;
+                        GPU_STATUS.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        GPU_STATUS.Text = STATUS_FAILED;
+                        GPU_STATUS.BackColor = Color.Red;
+                    }
 
                     if (pdc["DeviceID"].Value.ToString().ToUpper().Contains("VEN_10DE&DEV_1EB8"))
                     {
