@@ -14,7 +14,6 @@ namespace aetina_hwcheck_app.git
 {
     public partial class Form1 : Form
     {
-        private static string g_report = "";
         private IniFile m_Inifile;
         private const string STATUS_PASS = "PASS";
         private const string STATUS_FAILED = "FAILED";
@@ -22,20 +21,11 @@ namespace aetina_hwcheck_app.git
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void writelog(string context)
-        {
-            using (StreamWriter sw = File.AppendText(g_report))
-            {
-                sw.WriteLine(context);
-            }
-        }
+        }        
 
         private void showtotextbox(string context)
         {
-            tbx_hw_info.AppendText(context + "\r\n");
-            writelog(context);
+            tbx_hw_info.AppendText(context + "\r\n");            
         }
 
         private void gethwinfo()
@@ -56,6 +46,7 @@ namespace aetina_hwcheck_app.git
                 ManagementObjectSearcher mos = new ManagementObjectSearcher();
 
                 //Get Storage information
+                showtotextbox("---------------------SSD---------------------");
                 int ssd_checked_number = 0;
                 mos.Query.QueryString = "SELECT * FROM Win32_DiskDrive";
                 foreach (ManagementObject mo in mos.Get())
@@ -75,32 +66,15 @@ namespace aetina_hwcheck_app.git
                         SSD_STATUS.Text = STATUS_FAILED;
                         SSD_STATUS.BackColor = Color.Red;
                     }
-
-                    showtotextbox("---------------------SSD-----------------------------");
-                    showtotextbox("Caption: " + pdc["Caption"].Value);
-                    showtotextbox("CompressionMethod: " + pdc["CompressionMethod"].Value);
-                    showtotextbox("CreationClassName: " + pdc["CreationClassName"].Value);
-                    showtotextbox("Description: " + pdc["Description"].Value);
-                    showtotextbox("DeviceID: " + pdc["DeviceID"].Value);
-                    showtotextbox("ErrorDescription: " + pdc["ErrorDescription"].Value);
-                    showtotextbox("ErrorMethodology: " + pdc["ErrorMethodology"].Value);
-                    showtotextbox("FirmwareRevision: " + pdc["FirmwareRevision"].Value);
-                    showtotextbox("InterfaceType: " + pdc["InterfaceType"].Value);
-                    showtotextbox("Manufacturer: " + pdc["Manufacturer"].Value);
-                    showtotextbox("MediaType: " + pdc["MediaType"].Value);
+                    
                     showtotextbox("Model: " + pdc["Model"].Value);
-                    showtotextbox("Name: " + pdc["Name"].Value);
-                    showtotextbox("PNPDeviceID: " + pdc["PNPDeviceID"].Value);
-                    showtotextbox("SerialNumber: " + pdc["SerialNumber"].Value);
-                    showtotextbox("Status: " + pdc["Status"].Value);
-                    showtotextbox("SystemCreationClassName: " + pdc["SystemCreationClassName"].Value);
-                    showtotextbox("SystemName: " + pdc["SystemName"].Value);
                     UInt64 fsize = Convert.ToUInt64(pdc["Size"].Value) / (1024 * 1024 * 1024);
                     showtotextbox("Size: " + fsize + " GB");
-                    showtotextbox("-----------------------------------------------------");
                 }
+                showtotextbox("---------------------------------------------");
 
-                //Get DRAM information            
+                //Get DRAM information
+                showtotextbox("---------------------RAM---------------------");
                 int ram_check_number = 0;
                 mos.Query.QueryString = "SELECT * FROM Win32_PhysicalMemory";
                 foreach (ManagementObject mo in mos.Get())
@@ -120,42 +94,13 @@ namespace aetina_hwcheck_app.git
                         RAM_STATUS.Text = STATUS_FAILED;
                         RAM_STATUS.BackColor = Color.Red;
                     }
-
-                    showtotextbox("---------------------RAM-----------------------------");
-                    showtotextbox("BankLabel: " + pdc["BankLabel"].Value);
-                    showtotextbox("Capacity: " + pdc["Capacity"].Value);
-                    showtotextbox("Caption: " + pdc["Caption"].Value);
-                    showtotextbox("CreationClassName: " + pdc["CreationClassName"].Value);
-                    showtotextbox("DataWidth: " + pdc["DataWidth"].Value);
-                    showtotextbox("Description: " + pdc["Description"].Value);
-                    showtotextbox("DeviceLocator: " + pdc["DeviceLocator"].Value);
-                    showtotextbox("FormFactor: " + pdc["FormFactor"].Value);
-                    showtotextbox("HotSwappable: " + pdc["HotSwappable"].Value);
-                    showtotextbox("InstallDate: " + pdc["InstallDate"].Value);
-                    showtotextbox("InterleaveDataDepth: " + pdc["InterleaveDataDepth"].Value);
-                    showtotextbox("InterleavePosition: " + pdc["InterleavePosition"].Value);
-                    showtotextbox("Manufacturer: " + pdc["Manufacturer"].Value);
-                    showtotextbox("MemoryType: " + pdc["MemoryType"].Value);
-                    showtotextbox("Model: " + pdc["Model"].Value);
-                    showtotextbox("Name: " + pdc["Name"].Value);
-                    showtotextbox("OtherIdentifyingInfo: " + pdc["OtherIdentifyingInfo"].Value);
+                    
                     showtotextbox("PartNumber: " + pdc["PartNumber"].Value);
-                    showtotextbox("PositionInRow: " + pdc["PositionInRow"].Value);
-                    showtotextbox("PoweredOn: " + pdc["PoweredOn"].Value);
-                    showtotextbox("Removable: " + pdc["Removable"].Value);
-                    showtotextbox("Replaceable: " + pdc["Replaceable"].Value);
-                    showtotextbox("SerialNumber: " + pdc["SerialNumber"].Value);
-                    showtotextbox("SKU: " + pdc["SKU"].Value);
-                    showtotextbox("Speed: " + pdc["Speed"].Value);
-                    showtotextbox("Status: " + pdc["Status"].Value);
-                    showtotextbox("Tag: " + pdc["Tag"].Value);
-                    showtotextbox("TotalWidth: " + pdc["TotalWidth"].Value);
-                    showtotextbox("TypeDetail: " + pdc["TypeDetail"].Value);
-                    showtotextbox("Version: " + pdc["Version"].Value);
-                    showtotextbox("-----------------------------------------------------");
                 }
+                showtotextbox("---------------------------------------------");
 
                 //Get Video Card information
+                showtotextbox("---------------------GPU---------------------");
                 int GPU_COUNT = 0;
                 mos.Query.QueryString = "SELECT * FROM Win32_PnPEntity";
                 foreach (ManagementObject mo in mos.Get())
@@ -175,40 +120,47 @@ namespace aetina_hwcheck_app.git
                         GPU_STATUS.Text = STATUS_FAILED;
                         GPU_STATUS.BackColor = Color.Red;
                     }
-
-                    if (pdc["DeviceID"].Value.ToString().ToUpper().Contains("VEN_10DE&DEV_1EB8"))
+                    
+                    if (pdc["Description"].Value != null && pdc["Description"].Value.ToString().Contains("Video Controller"))
                     {
-                        showtotextbox("---------------------VideoCard-----------------------------");
-                        showtotextbox("Caption: " + pdc["Caption"].Value);
-                        showtotextbox("DeviceID: " + pdc["DeviceID"].Value);
                         showtotextbox("Description: " + pdc["Description"].Value);
-                        showtotextbox("-----------------------------------------------------");
+                        showtotextbox("DeviceID: " + pdc["DeviceID"].Value);
                     }
                 }
+                showtotextbox("---------------------------------------------");
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                g_report = Directory.GetCurrentDirectory() + "\\report.txt";
+            
+        }
 
-                // This text is added only once to the file.
-                if (!File.Exists(g_report))
+        private void tb_serialnumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
                 {
-                    // Create a file to write to.
-                    using (StreamWriter sw = File.CreateText(g_report))
-                    {
-                        //sw.WriteLine(DateTime.Now.ToString());
-                    }
+                    gethwinfo();
                 }
-
-                gethwinfo();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    string path = Directory.GetCurrentDirectory() + "\\" + tb_serialnumber.Text + ".txt";
+                    // This text is added only once to the file.
+                    if (!File.Exists(path))
+                    {
+                        // Create a file to write to.
+                        using (StreamWriter sw = File.CreateText(path))
+                        {
+                            sw.Write(tbx_hw_info.Text);
+                        }
+                    }                    
+                }
             }
         }
     }
