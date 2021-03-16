@@ -65,6 +65,7 @@
             this.tb_serialnumber.Name = "tb_serialnumber";
             this.tb_serialnumber.Size = new System.Drawing.Size(509, 22);
             this.tb_serialnumber.TabIndex = 15;
+            this.tb_serialnumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_serialnumber_KeyDown);
             // 
             // serial_number
             // 
